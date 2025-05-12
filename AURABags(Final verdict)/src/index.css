@@ -1,0 +1,21 @@
+@import "tailwindcss";
+.product-swiper {
+    padding: 1rem 0;
+  }
+  
+  .custom-prev,
+  .custom-next {
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+  
+  .custom-prev:hover,
+  .custom-next:hover {
+    opacity: 1;
+  }
+  
+  .custom-prev.swiper-button-disabled,
+  .custom-next.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
