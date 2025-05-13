@@ -66,9 +66,9 @@ const Navbar = () => {
             <Link
               className="font-medium"
               style={{ color: "rgb(51, 51, 51)" }}
-              to='/admin/create-products'
+              to='/admin/'
             >
-              Product
+              Admin
             </Link>
           </li>
         </ul>

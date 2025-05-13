@@ -1,9 +1,36 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingBag, Trash2 } from 'lucide-react';
-
+import axios from 'axios';
+import { API_KEY } from '../../config/config';
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
+
+
+useEffect(()=>{
+ 
+    CartData();
+    
+},[]);
+
+
+
+
+    // Handle success
+
+const CartData = async () =>{
+  
+     const token=localStorage.getItem('authToken');
+     const response = await axios.get(`${API_KEY}/cart`,{
+        headers: {
+          Authorization: `Bearer ${token}`, // Correctly set the Authorization header
+        },
+        withCredentials: true, // Ensure cookies are sent if required
+      });
+     console.log(response.data.cart[0]);
+     setCartItems(response.data.cart);
+
+}
 
   const removeFromCart = (productId) => {
     setCartItems(cartItems.filter(item => item.id !== productId));
@@ -34,12 +61,12 @@ const Cart = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 ">
       <h1 className="text-3xl font-bold text-gray-900 mb-8">Shopping Cart</h1>
       
       <div className="bg-white shadow-sm rounded-lg overflow-hidden">
         <ul className="divide-y divide-gray-200">
-          {cart.map((item) => (
+          {cartItems.map((item) => (
             <li key={item.id} className="p-6 flex items-center">
               <img
                 src={item.image}
@@ -76,16 +103,18 @@ const Cart = () => {
           ))}
         </ul>
         
-        <div className="p-6 bg-gray-50">
-          <div className="flex justify-between text-lg font-medium">
+        <div className="p-6 bg-gray-50 flex flex-col justify-center ">
+          <div className="flex justify-between mx-10 text-lg font-medium">
             <span>Total</span>
             <span>${total.toFixed(2)}</span>
           </div>
+          <div className='flex justify-center'>
           <button
-            className="mt-6 w-full bg-blue-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+            className="mt-6 w-1/5 bg-blue-500 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
           >
             Checkout
           </button>
+          </div>
         </div>
       </div>
     </div>

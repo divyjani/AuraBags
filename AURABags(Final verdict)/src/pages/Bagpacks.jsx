@@ -14,6 +14,7 @@ const Bagpacks = () => {
 //   console.log(Products);
 //   return Products.data.product
 // }
+const token = localStorage.getItem('authToken')
 
 useEffect(()=>{
   const getProducts=async()=>{
@@ -49,7 +50,7 @@ useEffect(()=>{
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {bagpacks.map(product => (
-              <ProductCard key={product._id} {...product} />
+              <ProductCard key={product._id} {...product} token={token}/>
             ))}
           </div>
         </div>

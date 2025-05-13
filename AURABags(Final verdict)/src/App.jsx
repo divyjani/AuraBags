@@ -22,13 +22,13 @@ import BestSeller from '../src/pages/Bestseller'
 import Cart from './pages/Cart'
 import CreateProducts from './Components/Product/CreateProducts'
 import ProductProfile from './Components/Product/ProductProfile'
-import Sidebar from './Components/admin/Sidebar'
-import Products from './Components/admin/Products'
-import Dashboard from './Components/admin/Dashboard'
-import Users from './Components/admin/Users'
-
-
-
+import AdminLogin from './Components/Admin/AdminLogin'
+import AdminDashboard from './Components/Admin/AdminDashboard'//
+import AdminSidebar from './components/Admin/AdminSidebar'
+import AdminLogout from './Components/Admin/AdminLogout'
+import ViewLuggage from './Components/Product/ViewLuggage'
+import Userview from './Components/Admin/Userview'
+import MostPopular from './pages/MostPopular'
 // import TrendyBags from '../src/pages/TrendyBags'
 
 // import LoginPopup from './Components/Popups/LoginPopup'
@@ -55,19 +55,7 @@ function App() {
    const [activePage, setActivePage] = useState('dashboard');
 
   // Render the appropriate component based on the active page
-  const renderPage = () => {
-    switch (activePage) {
-      case 'dashboard':
-        return <Dashboard />;
-      case 'products':
-        return <Products />;
-      case 'users':
-        return <Users />;
-      default:
-        return <Dashboard />;
-    }
-  };
-
+  
   const AdminProducts = () =>{
    return<CreateProducts/>
 }
@@ -89,20 +77,28 @@ function App() {
     <Route path='/Bagpacks' element={<><Navbar/><Bagpacks/></>} />
     <Route path="/Luggage" element={<><Navbar/><Luggage/></>} />
     <Route path="/Bestseller" element={<><Navbar/><BestSeller/></>} />
-    <Route path="/admin/create-products" element={<AdminProducts/>} />
+    <Route path="/product/create-products" element={<CreateProducts/>} />
     <Route path="/product/profile/" element={<ProductProfile/>} />
+<Route path="/viewallproducts" element={<ViewLuggage/>} />
+<Route path="/viewuser" element={<><Userview/></>}/>
     {/* <Route path="/TrendyBags" element={<TrendyBags/>} /> */}
-    <Route path="/MostPopular" element={<h1>Most Popular</h1>} />
+    <Route path="/Shop" element={<><Navbar/><MostPopular/></>} />
     <Route path="/cart" element={<><Cart/></>} />
-    <Route path="/admin" element={<>
-    <div className="flex h-screen bg-gray-100">
-      <Sidebar activePage={activePage} setActivePage={setActivePage} />
-      <div className="flex-1 overflow-auto p-6">
-        {renderPage()}
-      </div>
-      
-    </div>
-</>} />
+    <Route path="admin/login" element={<AdminLogin />} />
+        <Route 
+          path="/admin/logout" 
+     element={<><AdminLogout/></>}     
+        />
+
+         <Route 
+          path="/admin" 
+          element={
+            // <ProtectedRoute>
+              <AdminDashboard />
+               
+          } 
+        />
+          <Route path='admins' element={<AdminSidebar />} />
 
   </Routes>
  

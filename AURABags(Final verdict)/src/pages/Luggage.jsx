@@ -36,6 +36,7 @@ const Luggage = () => {
       <SortBy />
 
       {/* Main Content Area */}
+      
       <div className="w-3/4 h-screen p-5 flex flex-col items-start">
         {/* Sort by dropdown */}
         <div className="flex items-center gap-2 mb-5">

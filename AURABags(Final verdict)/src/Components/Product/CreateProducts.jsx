@@ -104,7 +104,7 @@ const ProductCreationPage = () => {
             
             <nav className="space-y-2">
               <a 
-                href="#all-products" 
+                href="/viewallproducts" 
                 className="flex items-center text-gray-600 hover:text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-md transition-colors"
               >
                 <ArrowLeft size={18} className="mr-2" />

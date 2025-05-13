@@ -17,26 +17,9 @@ const Login = () => {
   const [resetEmail, setResetEmail] = useState("");
   const [showConfirmPopup, setShowConfirmPopup] = useState(false);
 
- 
-// const useTokenUrl = () => {
-  // useEffect(() => {
-  //    const fetchToken = async () => {
-       
-    
-  //    const response= await axios.get(`${API_KEY}/user/login`).then(response => {
-       
-  //   let response.data=token;
-  //   const token = localStorage.getItem("token"); // Retrieving token from localStorage
-  //   console.log(token);
-  //   if (token) {
-  //     const currentUrl = new URL(window.location.href);
-  //     currentUrl.searchParams.set("token", token); // Adding token as a query parameter
-  //     window.history.replaceState({}, "", currentUrl.toString()); // Updating the URL without reloading
-  //   } }) }
-  //   fetchToken();
-  // }, []);
 
-// };
+
+
 
 
   const handlePasswordReset = async () => {
@@ -51,9 +34,9 @@ const Login = () => {
       .catch(err => console.error("Error sending reset link:", err));
   };
 
+  
 
-
-     const [data,setData]=useState([]);     
+     const [token,setToken]=useState('');     
 
   const onSubmit = async (data) => {
     console.log("button was clicked");
@@ -64,6 +47,7 @@ const Login = () => {
     const token = response.data.token;
     localStorage.setItem("authToken", token); // Store token
     console.log("Token stored:", token);
+    setToken(token);
      console.log(response.data);
      if (response.data.redirectTo) {
       window.location.href = response.data.redirectTo; // Manual redirect

@@ -1,0 +1,23 @@
+import { useState } from 'react'
+import '../../assets/ADashboard/Amain.css';
+import AdminHome from '../../components/Admin/AdminHome';
+import Adminnav from '../../components/Admin/Adminnav'
+import AdminSidebar from '../../components/Admin/AdminSidebar';
+
+function App() {
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false)
+
+  const OpenSidebar = () => {
+    setOpenSidebarToggle(!openSidebarToggle)
+  }
+
+  return (
+    <div className='grid-container'>
+      <Adminnav OpenSidebar={OpenSidebar}/>
+      <AdminSidebar openSidebarToggle={openSidebarToggle} OpenSidebar={OpenSidebar}/>
+      <AdminHome />
+    </div>
+  )
+}
+
+export default App

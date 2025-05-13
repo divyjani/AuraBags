@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+.menu-icon {
+  cursor: pointer;
+}
+
+.header-left, .header-right {
+  display: flex;
+  align-items: center;
+}
+.header-left .icon {
+  font-size: 20px;
+  cursor: pointer;
+  margin-right: 15px;
+}
+
+.header-right .icon {
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+.icon:hover {
+  color: #007bff;
+}
