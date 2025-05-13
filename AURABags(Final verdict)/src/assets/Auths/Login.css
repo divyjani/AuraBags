@@ -1,0 +1,23 @@
+/* Style for the background video */
+.login-video{
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Place it behind other content */
+}
+
+/* Ensure body content is visible over the video */
+body {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}

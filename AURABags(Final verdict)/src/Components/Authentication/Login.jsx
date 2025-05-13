@@ -7,6 +7,7 @@ import { useState } from "react";
 import { FaUnlockAlt } from "react-icons/fa";
 import {FaUserAlt} from "react-icons/fa";
 import { useEffect } from "react";
+import '../../assets/Auths/Login.css'
 const Login = () => {
   const {
     register,
@@ -58,7 +59,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-end items-start h-screen p-10  bg-gray-100">
+    <>
+    <video src="/BagVid2.mp4" type="video/mp4" autoPlay loop muted className="login-video" > </video>
+    <div className="flex justify-end items-start h-screen p-10  bg-gray-100"> 
       <div className="bg-white px-10 py-8  rounded-xl shadow-lg w-[25rem] mt-10 mr-7 ">
         <h1 className="text-3xl font-bold mb-6 text-center">Login</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 ">
@@ -132,6 +135,8 @@ const Login = () => {
         </div>
       )}
     </div>
+   
+    </>
   );
 };
 

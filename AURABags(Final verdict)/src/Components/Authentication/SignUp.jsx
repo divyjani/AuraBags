@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import '../../assets/Auths/Register.css';
 
 const SignUp = () => {
   const {
@@ -27,7 +28,9 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <>
+    <video src="/src/assets/Auths/register.mp4" type="video/mp4" className="fixed top-0 left-0 w-full h-full object-cover" autoPlay loop muted ></video>
+    <div className="flex justify-center items-center h-screen ">
       <div className="bg-white px-14 py-8 rounded-lg shadow-md w-[25rem]">
         <h2 className="text-2xl font-bold mb-4 text-center">Create an Account</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-7">
@@ -70,6 +73,7 @@ const SignUp = () => {
         </p>
       </div>
     </div>
+    </>
   );
 };
 
