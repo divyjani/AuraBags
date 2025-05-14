@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import '../../assets/ADashboard/Amain.css';
-import AdminHome from '../../components/Admin/AdminHome';
+import AdminHome from '../../Components/Admin/AdminHome';
 import Adminnav from '../../components/Admin/Adminnav'
 import AdminSidebar from '../../components/Admin/AdminSidebar';
 
