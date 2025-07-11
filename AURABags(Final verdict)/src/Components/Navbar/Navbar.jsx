@@ -1,5 +1,5 @@
 import React from "react";
-import navLogo from "./../../assets/navLogo.png";
+import navLogo from "/navLogo.png";
 
 import {
   FaCartArrowDown,

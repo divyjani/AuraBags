@@ -9,7 +9,7 @@ import { API_KEY } from '../../../config/config';
 
 const ProductCard = ({ name, price, image, category, discount, MRP, _id, token }) => {
   // Fallback image if the provided image is empty or fails to load
-  const fallbackImage = "/src/assets/placeholder.png";
+  const fallbackImage = "//placeholder.png";
 
   // State to track the current image source
   const [imgSrc, setImgSrc] = useState(`http://localhost:5000${image}` || fallbackImage);
@@ -53,7 +53,7 @@ const ProductCard = ({ name, price, image, category, discount, MRP, _id, token }
       toast.error("You must be logged in to add items to the cart.");
       return;
     }
-
+     console.log(token);;
     // Make the API call with the correct payload and headers
     const response = await axios.post(
       `${API_KEY}/addToCart/${_id}`,
@@ -87,7 +87,7 @@ const ProductCard = ({ name, price, image, category, discount, MRP, _id, token }
 
   return (
     <div
-      className="group bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden flex flex-col h-full w-[210px]"
+      className="group bg-white rounded-lg w-full shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden flex flex-col h-full "
      
     >
       {/* Product Image Container */}
@@ -96,7 +96,7 @@ const ProductCard = ({ name, price, image, category, discount, MRP, _id, token }
         <img
           src={imgSrc}
           alt={name}
-          className="w-full h-65 object-cover ransition-transform duration-300 group-hover:scale-105"
+          className="w-full h-65 object-contain ransition-transform duration-300 group-hover:scale-105"
           onError={() => setImgSrc(fallbackImage)}
         />
 

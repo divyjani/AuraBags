@@ -18,11 +18,6 @@ const Login = () => {
   const [resetEmail, setResetEmail] = useState("");
   const [showConfirmPopup, setShowConfirmPopup] = useState(false);
 
-
-
-
-
-
   const handlePasswordReset = async () => {
     if (!resetEmail) return alert("Please enter your registered email.");
     

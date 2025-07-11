@@ -16,8 +16,11 @@ const Luggage = () => {
   
   useEffect(()=>{
     const getProducts=async()=>{
-      const Products= await axios.get(`${API_KEY}/product/give-products`);
-  
+      const token = localStorage.getItem('authToken');
+      const Products= await axios.get(`${API_KEY}/product/give-products`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+        withCredentials: true,
+      });
       setProducts(Products.data.product);
     }
   
@@ -50,7 +53,7 @@ const Luggage = () => {
         {/* Product Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {luggage.map(product => (
-            <ProductCard key={product.id} {...product} />
+            <ProductCard key={product._id} {...product} token={localStorage.getItem('authToken')}/>
           ))}
         </div>
       </div>

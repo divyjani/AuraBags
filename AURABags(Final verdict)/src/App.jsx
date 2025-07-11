@@ -24,15 +24,32 @@ import CreateProducts from './Components/Product/CreateProducts'
 import ProductProfile from './Components/Product/ProductProfile'
 import AdminLogin from './Components/Admin/AdminLogin'
 import AdminDashboard from './Components/Admin/AdminDashboard'//
-import AdminSidebar from './components/Admin/AdminSidebar'
+// import Adminsidebar from './Components/Admin/Adminsidebar'
 import AdminLogout from './Components/Admin/AdminLogout'
 import ViewLuggage from './Components/Product/ViewLuggage'
 import Userview from './Components/Admin/Userview'
 import MostPopular from './pages/MostPopular'
+  import axios from "axios";
 // import TrendyBags from '../src/pages/TrendyBags'
-
+import { useEffect } from 'react'
+import ProtectedRoute from './Components/ProtectedRoute'
 // import LoginPopup from './Components/Popups/LoginPopup'
 function App() {
+
+// useEffect(() => {
+//   fetchData();
+//   // Fetch data from the backend when the component mounts
+//   },[]);
+//   const fetchData = async () => {
+//     try {
+//       const response = await axios.get("https://aurabagsbackend.onrender.com/api/data");
+//       console.log(response.data);
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//     }
+//   };
+
+
   const [count, setCount] = useState(0)
   function HomeLayout() {
     return (
@@ -72,6 +89,7 @@ function App() {
     <Route path='/' element={<><HomeLayout/></>}/>
     <Route path="/login" element={<> <Login/></>}/>
     <Route path="/signup" element={<SignUp/>} />
+
     <Route path="/reset-password/" element={<ResetPassword/>} />
     <Route path='/Duffles' element={<><Navbar/><Duffles/></>} />
     <Route path='/Bagpacks' element={<><Navbar/><Bagpacks/></>} />
@@ -84,6 +102,7 @@ function App() {
     {/* <Route path="/TrendyBags" element={<TrendyBags/>} /> */}
     <Route path="/Shop" element={<><Navbar/><MostPopular/></>} />
     <Route path="/cart" element={<><Cart/></>} />
+
     <Route path="admin/login" element={<AdminLogin />} />
         <Route 
           path="/admin/logout" 
@@ -98,13 +117,9 @@ function App() {
                
           } 
         />
-          <Route path='admins' element={<AdminSidebar />} />
+       
 
   </Routes>
- 
-
-
-
          </> 
        </BrowserRouter>  
   )

@@ -14,20 +14,22 @@ const Bagpacks = () => {
 //   console.log(Products);
 //   return Products.data.product
 // }
-const token = localStorage.getItem('authToken')
+// const token = localStorage.getItem('authToken')
 
 useEffect(()=>{
   const getProducts=async()=>{
-    const Products= await axios.get(`${API_KEY}/product/give-products`);
-
-    setProducts(Products.data.product);
+    const token = localStorage.getItem('authToken');
+    const response= await axios.get(`${API_KEY}/product/give-products`, {
+      headers: token ? { Authorization: `Bearer ${token}` } : {},
+      withCredentials: true,
+    });
+    setProducts(response.data.product);
   }
-
   getProducts();
 
 },[])
 
-   console.log(products[0]);
+  //  console.log(products[0]);
   const bagpacks = products.filter(product => product.category === 'Bagpacks');
 
   return (
@@ -50,7 +52,7 @@ useEffect(()=>{
           {/* Product Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {bagpacks.map(product => (
-              <ProductCard key={product._id} {...product} token={token}/>
+              <ProductCard key={product._id} {...product} token={localStorage.getItem('authToken')}/>
             ))}
           </div>
         </div>

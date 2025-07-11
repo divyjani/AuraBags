@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { FaSquareFacebook } from "react-icons/fa6";
-import AuraLogo from '../../assets/navLogo.png';
+import AuraLogo from '/navLogo.png';
 import { IoLogoYoutube } from 'react-icons/io';
 import { ImInstagram } from "react-icons/im";
-import master from '../../assets/master.png'
-import visa from '../../assets/visa.png'
+import master from '/master.png'
+import visa from '/visa.png';
 const BlackFooter = () => {
     return (
         <div className='bg-[#272727] py-20 text-gray-50'>

@@ -124,8 +124,8 @@ export default function ProductPage() {
           
           {/* Price Section */}
           <div className="flex items-baseline gap-2 mb-4">
-            <span className="text-2xl font-medium">₹{product.price}</span>
-            <span className="text-gray-500 line-through">₹{product.originalPrice}</span>
+            <span className="text-2xl font-medium">${product.price}</span>
+            <span className="text-gray-500 line-through">${product.originalPrice}</span>
             <span className="text-green-600 font-medium">{product.discount}% off</span>
           </div>
           
